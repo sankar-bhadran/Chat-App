@@ -1,51 +1,47 @@
 # Chat App
 
-This is a real-time chat application built using NestJS, GraphQL, and a client-server architecture.
-
-## Project Structure
-
-```
-chat-app/
-├── client/   # Frontend (React, Vue, etc.)
-├── server/   # Backend (NestJS, GraphQL, WebSockets)
-└── README.md
-```
+A real-time chat application built with Next.js, ShadCN for UI components, NestJS, GraphQL for API integration, Socket.io for real-time communication, and MongoDB as the database.
 
 ## Technologies Used
 
-### Backend (Server)
-
-- **NestJS** - Modular and scalable backend framework.
-- **GraphQL** - API for querying and updating chat data.
-- **WebSockets** - Real-time communication for chat.
-- **MongoDB** - Database for storing chat messages.
-- **TypeORM/Mongoose** - ORM/ODM for database interactions.
-- **JWT Authentication** - Secure user authentication.
-
 ### Frontend (Client)
 
-- **React / Vue.js** - UI framework for chat interface.
-- **Apollo Client** - GraphQL client for handling API calls.
-- **Socket.io** - Real-time chat functionality.
-- **Material UI / TailwindCSS** - Styling for the UI.
+- Next.js
+- ShadCN
+- Socket.io-client
 
-## Installation & Setup
+### Backend (Server)
+
+- NestJS
+- GraphQL
+- Socket.io
+- MongoDB
+
+## Features
+
+- User authentication (Session-based or alternative method, no JWT)
+- Real-time messaging using Socket.io
+- GraphQL API for data fetching and mutations
+- Modern UI with ShadCN components
+- MongoDB for storing user and message data
+
+## Installation
 
 ### Prerequisites
 
-- Node.js (>= 16.x)
-- MongoDB
-- Yarn / npm
+- Node.js installed
+- MongoDB database setup
 
-### Backend Setup
+### Setup
+
+#### Clone the repository
 
 ```sh
-cd server
-npm install
-npm run start:dev
+git clone https://github.com/your-repo/chat-app.git
+cd chat-app
 ```
 
-### Frontend Setup
+### Client Setup
 
 ```sh
 cd client
@@ -53,24 +49,23 @@ npm install
 npm run dev
 ```
 
-## Features
+### Server Setup
 
-- Real-time chat with WebSockets
-- User authentication (JWT)
-- GraphQL API for chat messages
-- User-friendly UI
+```sh
+cd server
+npm install
+npm run start
+```
 
 ## API Endpoints (GraphQL)
 
-- `users`: Manage user authentication.
-- `messages`: Send & receive chat messages.
-- `subscriptions`: Real-time updates for new messages.
+- `query { messages { id, content, sender } }`
+- `mutation { sendMessage(content: "Hello", sender: "User1") { id, content } }`
 
-## Contributing
+## WebSocket Events
 
-Feel free to fork and contribute via pull requests.
+- `connect` - Establishes socket connection
+- `message` - Listens and sends real-time messages
+- `disconnect` - Handles disconnection
 
-## License
-
-This project is licensed under the MIT License.
-
+##
